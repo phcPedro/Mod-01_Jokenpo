@@ -2,7 +2,7 @@ let prompt = require("prompt-sync")();
 const joke = ["pedra", "papel", "tesoura"];
 let playerPoint = 0;
 let pcPoint = 0;
-let more = 0;
+let e = 'sim';
 let pc = 0;
 let v = 0;
 console.log(
@@ -69,7 +69,7 @@ do {
     console.log('PC: ' + pcPoint);
     console.log(`Rounds: ${v+1}`);
   }
-
+  //Mostra o ganhador.
   if(playerPoint > pcPoint){
     console.log('Parabens voce ganhou');
     console.log('Placar');
@@ -86,15 +86,13 @@ do {
     console.log(`Meus pontos: ${pcPoint}`);
     console.log('Isso é um empate, mas no pedra papel ou tesoura não tem empates. Então temos que jogar novamente.');
   }
-  let e = prompt("Jogar novamente? digite sim ou nao: ").toLowerCase();
-  console.clear();
+  //Pergunta se quer jogar novamente e abaixo mais uma validacao para que o codigo nao entre em loop ou quebre;
+   e = prompt("Jogar novamente? digite sim ou nao: ").toLowerCase();
+
   while (e != "sim" && e != "nao") {
     console.log("Apenas sim ou não.");
     e = prompt("Digite sim ou nao: ").toLowerCase();
     console.log(e);
   }
-  if (e == "nao") {
-    more++;
-  }
-} while (more == 0);
-console.clear();
+ console.clear()
+} while (e == "sim");
